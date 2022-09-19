@@ -42,7 +42,7 @@ const ReadArticle = ({ article, questionInfo }) => {
           </h1>
 
           <Tab.Group>
-            <Tab.List className="flex space-x-1 rounded-xl bg-blue-900/20 p-1">
+            <Tab.List className="flex space-x-2 rounded-xl bg-blue-900/20 p-3 mx-2">
               {["Objections", "Answer", "Replies"].map((category) => (
                 <Tab
                   key={category}
@@ -60,7 +60,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                 </Tab>
               ))}
             </Tab.List>
-            <Tab.Panels className="mt-2 bg-slate-400/10">
+            <Tab.Panels className="mt-2 bg-slate-400/10 px-2 md:px-0">
               <Tab.Panel
                 className={classNames(
                   "rounded-xl  p-3 ",
@@ -103,8 +103,8 @@ const ReadArticle = ({ article, questionInfo }) => {
                 )}
               >
                 <ul>
-                  {art.objections &&
-                    art.objections.map((p, i) => (
+                  {art.replies &&
+                    art.replies.map((p, i) => (
                       <li
                         key={i}
                         className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-500"
@@ -124,8 +124,8 @@ const ReadArticle = ({ article, questionInfo }) => {
         </main>
 
         <footer className="fixed bottom-0 inset-x-0 w-full bg-indigo-100 border-t dark:border-slate-300/10 dark:bg-gray-900">
-          <div className="flex items-center justify-between px-6 py-5">
-            <div className="">
+          <div className="flex items-center justify-between px-2 md:px-6 py-4">
+            <div className="md:w-48 w-1/2">
               {article.previousArticle && (
                 <Link
                   href={`/browse/Pt.${questionInfo.partId}-Tt.${questionInfo.treatiseId}-QQ.${questionInfo.id}-Art.${article.previousArticle.id}`}
@@ -135,7 +135,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                       <div className="block text-sm">
                         <FontAwesomeIcon icon={faChevronLeft} />
                       </div>
-                      <div className="capitalize text-sm mx-6">
+                      <div className="capitalize text-sm mx-6 line-clamp-2 md:w-48 w-1/2">
                         {article.previousArticle.title}
                       </div>
                     </div>
@@ -143,14 +143,14 @@ const ReadArticle = ({ article, questionInfo }) => {
                 </Link>
               )}
             </div>
-            <div className="">
+            <div className="md:w-48 w-1/2">
               {article.nextArticle && (
                 <Link
                   href={`/browse/Pt.${questionInfo.partId}-Tt.${questionInfo.treatiseId}-QQ.${questionInfo.id}-Art.${article.nextArticle.id}`}
                 >
                   <a className="text-indigo-900 font-bold dark:text-indigo-300">
                     <div className="flex items-center py-2">
-                      <div className="capitalize text-sm mx-6">
+                      <div className="capitalize text-sm mx-6 line-clamp-2 md:w-48 w-1/2">
                         {article.nextArticle.title}
                       </div>
                       <div className="block text-sm">
