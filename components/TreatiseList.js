@@ -14,7 +14,7 @@ const TreatiseList = ({ list, partInfo }) => {
 
       <div className="flex px-20 p-6">
         <Link href={`/browse/`}>
-          <a className="hover:text-sky-500  dark:bg-slate-900/70">
+          <a className="text-sky-500 dark:text-sky-300">
             <div className="flex items-center">
               <div className="text-sm p-1">
                 <FontAwesomeIcon icon={faChevronLeft} />
@@ -25,10 +25,10 @@ const TreatiseList = ({ list, partInfo }) => {
         </Link>
       </div>
       <main className="flex w-full flex-1 flex-col justify-start px-20 pb-24">
-        <h1 className=" dark:bg-slate-900/70 capitalize subpixel-antialiase text-2xl font-bold text-center mt-4">
+        <h1 className="capitalize subpixel-antialiase text-2xl font-bold text-center mt-4">
           {partInfo.title}
         </h1>
-        <h3 className=" dark:bg-slate-900/70 subpixel-antialiased capitalize dark:text-slate-400 text-slate-700 text-2xl font-semibold text-center mt-4">
+        <h3 className="subpixel-antialiased capitalize text-2xl font-semibold text-center mt-4">
           List of treatises
         </h3>
 

@@ -3,7 +3,7 @@ import Link from "next/link";
 
 const About = () => {
   return (
-    <div className="flex min-h-screen flex-col text-slate-800 dark:text-slate-400 dark:bg-slate-900">
+    <div className="flex min-h-screen flex-col bg-gradient-to-br from-rose-100 via-red-200/20 to-teal-100 dark:from-rose-300/50 text-slate-800 dark:text-slate-100 dark:bg-slate-900">
       <Head>
         <title>Summa Explorer</title>
         <link rel="icon" href="/favicon.ico" />
@@ -148,7 +148,6 @@ const About = () => {
           </a>
         </p>
       </main>
-
     </div>
   );
 };

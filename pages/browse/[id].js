@@ -7,7 +7,7 @@ import Error from "next/error";
 
 const Browse = ({ info }) => {
   return (
-    <div className="bg-gradient-to-br from-indigo-200/20 via-red-200/20 to-yellow-100 dark:bg-slate-700/80 flex min-h-screen flex-col  text-slate-800 dark:text-slate-400  pt-16 ">
+    <div className="bg-gradient-to-br from-indigo-200/20 via-red-200/20 to-yellow-100 dark:via-red-500/20 dark:to-yellow-900/25 dark:bg-slate-700/80 flex min-h-screen flex-col text-slate-800 dark:text-slate-100 pt-16 ">
       {info.type == "PARTINFO" && (
         <TreatiseList list={info.treatises} partInfo={info.partInfo} />
       )}

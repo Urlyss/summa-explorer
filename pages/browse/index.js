@@ -3,7 +3,7 @@ import db from "./../../db.json";
 
 const Browse = ({ parts }) => {
   return (
-    <div className="bg-gradient-to-br from-indigo-200/20 via-red-200/20 to-yellow-100 flex min-h-screen flex-col text-slate-800 dark:text-slate-400 dark:bg-slate-700/80 pt-20 ">
+    <div className="bg-gradient-to-br from-indigo-200/20 via-red-200/20 to-yellow-100 dark:to-transparent flex min-h-screen flex-col text-slate-800 dark:text-slate-100 dark:bg-slate-700/80 pt-20 ">
       <PartList list={parts} />
     </div>
   );

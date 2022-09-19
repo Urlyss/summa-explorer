@@ -17,7 +17,7 @@ const ArticleList = ({ list, questionInfo }) => {
         <Link
           href={`/browse/Pt.${questionInfo.partId}-Tt.${questionInfo.treatiseId}`}
         >
-          <a className="hover:text-sky-500 bg-amber-600/10 dark:bg-slate-900/70">
+          <a className="text-sky-500 dark:text-sky-300">
             <div className="flex items-center">
               <div className="text-sm p-1">
                 <FontAwesomeIcon icon={faChevronLeft} />
@@ -29,13 +29,13 @@ const ArticleList = ({ list, questionInfo }) => {
       </div>
 
       <main className="flex w-full flex-1 flex-col justify-start px-20 pb-24">
-        <h1 className="bg-amber-600/10 dark:bg-slate-900/70 subpixel-antialiase text-2xl font-bold text-center mt-4">
+        <h1 className=" subpixel-antialiase text-2xl font-bold text-center mt-4">
           {questionInfo.title}
         </h1>
-        <h3 className="dark:text-slate-400 bg-amber-600/10 dark:bg-slate-900/70 subpixel-antialiased text-slate-700 text-2xl font-semibold text-center mt-4">
+        <h3 className="subpixel-antialiased text-2xl font-semibold text-center mt-4">
           List of articles
         </h3>
-        <h3 className="indent-8 px-6 bg-amber-600/10 dark:bg-slate-900/70 subpixel-antialiase leading-relaxed text-2xl font-medium text-justify mt-4">
+        <h3 className="indent-8 px-6  subpixel-antialiase leading-relaxed text-2xl font-medium text-justify mt-4">
           {questionInfo.description}
         </h3>
 

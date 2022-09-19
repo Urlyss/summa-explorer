@@ -8,6 +8,7 @@ import "nprogress/nprogress.css";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Head from "next/head";
 config.autoAddCss = false;
 
 function App({ Component, pageProps }) {
@@ -36,6 +37,19 @@ function App({ Component, pageProps }) {
       document.documentElement.classList.remove("dark");
     }
 
+    window.onclick = function (event) {
+      if (
+        !event.target.matches("#dropbtn") &&
+        !event.target.parentElement.matches("#dropbtn")
+      ) {
+        if (
+          !document.getElementById("dropdownMenu").classList.contains("hidden")
+        ) {
+          document.getElementById("dropdownMenu").classList.add("hidden");
+        }
+      }
+    };
+
     return () => {
       Router.events.on("routeChangeStart", () => NProgress.start());
       Router.events.on("routeChangeComplete", () => NProgress.done());
@@ -43,10 +57,44 @@ function App({ Component, pageProps }) {
     };
   }, [Router.events, themeChanged]);
 
+  const toggleDropdown = (event) => {
+    document.getElementById("dropdownMenu").classList.toggle("hidden");
+  };
+
   return (
     <>
-      <nav className="bg-gradient-to-r from-indigo-200/20 px-24  text-slate-800 border-slate-900/10 border-b dark:border-slate-300/10 md:px-2 py-2.5 dark:bg-gray-900">
-        <div className="container flex flex-wrap justify-between items-center mx-auto">
+      <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+        />
+        <meta name="application-name" content="Summa Explorer" />
+        <meta
+          name="description"
+          content="This site allows you to explore the Summa theologica"
+        />
+        <meta name="keywords" content="Keywords" />
+
+        <link rel="manifest" href="/manifest.json" />
+        <link
+          href="/favicon-16x16.png"
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link
+          href="/favicon-32x32.png"
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+        <meta name="theme-color" content="#317EFB" />
+      </Head>
+      <nav className="bg-gradient-to-r from-indigo-200/20 md:px-0 px-6 text-slate-800 border-slate-900/10 border-b dark:border-slate-300/10 py-2.5 dark:bg-gray-900">
+        <div className="max-w-6xl flex flex-wrap justify-between relative items-center mx-auto">
           <Link href="/">
             <a className="flex items-center space-x-4">
               <Image
@@ -61,7 +109,36 @@ function App({ Component, pageProps }) {
               </span>
             </a>
           </Link>
-          <div className="justify-between items-center w-full md:flex md:w-auto md:order-1 md:space-y-0 space-y-8">
+
+          <button
+            onClick={toggleDropdown}
+            id={"dropbtn"}
+            data-collapse-toggle="navbar-default"
+            type="button"
+            className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            aria-controls="navbar-default"
+            aria-expanded="false"
+          >
+            <span className="sr-only">Open main menu</span>
+            <svg
+              className="w-6 h-6"
+              aria-hidden="true"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                fillRule="evenodd"
+                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </button>
+
+          <div
+            className="md:relative absolute inset-x-0 md:top-0 top-16 bg-gradient-to-r from-indigo-200 to-indigo-300 md:px-0 md:from-transparent py-4 justify-between items-center w-full md:flex md:w-auto md:order-1 md:space-y-0 space-y-8 hidden"
+            id="dropdownMenu"
+          >
             <div className="text-sm leading-6 font-semibold text-slate-700 dark:text-slate-200">
               <ul className="flex flex-col p-4 mt-4 md:space-y-0 space-y-4 md:flex-row md:space-x-8 md:mt-0 md:border-0">
                 <li>
