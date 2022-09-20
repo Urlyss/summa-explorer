@@ -48,7 +48,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                   key={category}
                   className={({ selected }) =>
                     classNames(
-                      "w-full rounded-lg py-2.5 text-sm font-medium leading-5 text-slate-800 dark:text-slate-100",
+                      "w-full rounded-lg py-2.5 text-sm font-medium leading-6 text-slate-800 dark:text-slate-100",
                       "ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
                       selected
                         ? "text-blue-700 dark:text-blue-400 bg-white shadow"
@@ -60,7 +60,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                 </Tab>
               ))}
             </Tab.List>
-            <Tab.Panels className="mt-2 bg-slate-400/10 px-2 md:px-0">
+            <Tab.Panels className="mt-2 bg-slate-400/10 px-2 mx-2 md:mx-0 md:px-0">
               <Tab.Panel
                 className={classNames(
                   "rounded-xl  p-3 ",
@@ -74,7 +74,10 @@ const ReadArticle = ({ article, questionInfo }) => {
                         key={i}
                         className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-500"
                       >
-                        <h3 className="text-sm font-medium leading-5 indent-8">
+                        <h3 className="text-sm font-medium leading-6 indent-8">
+                          <span className="font-bold">
+                            ❌ Objection {i + 1} :{" "}
+                          </span>
                           {p.text}
                         </h3>
                       </li>
@@ -89,9 +92,19 @@ const ReadArticle = ({ article, questionInfo }) => {
               >
                 <ul>
                   <li className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-500">
-                    <h3 className="text-sm font-medium leading-5 indent-8">
-                      <div className="indent-8 my-4"> {art?.counter} </div>
-                      <div className="indent-8 my-4"> {art?.body} </div>
+                    <h3 className="text-sm font-medium leading-6 indent-8">
+                      <div className="indent-8 my-4">
+                        {" "}
+                        <span>🎓</span> {art?.counter}{" "}
+                      </div>
+                    </h3>
+                  </li>
+                  <li className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-500">
+                    <h3 className="text-sm font-medium leading-6 indent-8">
+                      <div className="indent-8 my-4">
+                        {" "}
+                        <span>💬</span> {art?.body}{" "}
+                      </div>
                     </h3>
                   </li>
                 </ul>
@@ -109,11 +122,23 @@ const ReadArticle = ({ article, questionInfo }) => {
                         key={i}
                         className="relative rounded-md p-3 hover:bg-gray-100 dark:hover:bg-gray-500"
                       >
-                        <h3 className="text-sm font-medium leading-5 indent-8">
+                        <h3 className="text-sm font-medium leading-6 indent-8">
                           <p className="truncate indent-8 mb-1">
-                            {art.objections[i] && art.objections[i].text}
+                            {art.objections[i] && (
+                              <>
+                                <span className="font-bold">
+                                  ❌ Objection {i + 1} :{" "}
+                                </span>{" "}
+                                {art.objections[i].text}
+                              </>
+                            )}
                           </p>
-                          <p className="indent-8">{p.text}</p>
+                          <p className="indent-8">
+                            <span className="font-bold">
+                              ✔️ Reply to Objection {i + 1} :{" "}
+                            </span>{" "}
+                            {p.text}
+                          </p>
                         </h3>
                       </li>
                     ))}
@@ -135,7 +160,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                       <div className="block text-sm">
                         <FontAwesomeIcon icon={faChevronLeft} />
                       </div>
-                      <div className="capitalize text-sm mx-6 line-clamp-2 md:w-48 w-1/2">
+                      <div className="capitalize text-sm mx-3 line-clamp-2 md:w-48">
                         {article.previousArticle.title}
                       </div>
                     </div>
@@ -150,7 +175,7 @@ const ReadArticle = ({ article, questionInfo }) => {
                 >
                   <a className="text-indigo-900 font-bold dark:text-indigo-300">
                     <div className="flex items-center py-2">
-                      <div className="capitalize text-sm mx-6 line-clamp-2 md:w-48 w-1/2">
+                      <div className="capitalize text-sm mx-3 line-clamp-2 md:w-48 ">
                         {article.nextArticle.title}
                       </div>
                       <div className="block text-sm">
